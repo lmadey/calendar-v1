@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+//COLORS
+$primary: #eeff00;
+$secondary: #4685ce;
+$white: #ffffff;
+$dark: #332929;
+$outline: #eee6e6;
+$google: #DB4437;
+$hoverPrimary: #e0ee24;
+$hoverDark: #4e4444;
+
+//SIZES
+$mobileL: 425px;
+$tablet: 768px;
+$laptop: 1024px;
+$laptopL: 1440pX;
+
+//LOGIN HOME
+
+.login-wrapper{
+    align-items: center;
+    background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    @media (min-width: $tablet){
+        align-items: flex-end;
+    }
+}
+
+.login-container{
+    width: 100%;
+    background-color: #0000005c;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $mobileL) {
+        width: 65%;
+        box-shadow: 20px 0 0 200px #0000005c;
+    }
+    @media (min-width: $tablet) {
+        width: 45%;
+        box-shadow: none;
+    }
+    @media (min-width: $laptop) {
+        width: 30%;
+    }
+}
+
+.login-header{
+    height: 10vh;
+    width: 100%;
+    background-color: $dark;
+    z-index: 1;
+    h2{
+        font-weight: 100;
+        line-height: 10vh;
+        padding-left: 10px;
+        color: $white
+    }
+}
+
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-input{
+    border-radius: 5px;
+    width: 90%;
+    height: 35px;
+    outline: none;
+    border: none;
+    color: $dark;
+    background-color: $outline;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+//LOGIN BUTTONS
+
+.google-btn{
+    border-radius: 5px;
+    width: 90%;
+    height: 35px;
+    outline: none;
+    border: none;
+    color: $dark;
+    background-color: $outline;
+    padding-left: 10px;
+    margin-top: 20px;
+    line-height: 35px;
+    cursor: pointer;
+    transition: background-color .5s;
+    i{
+        font-size: 16px;
+        padding-right: 10px;
+        color: $google;
+    }
+    &:hover{
+        background-color: $white;
+    }
+}
+
+.login-btn{
+    margin-top: 40px;
+    height: 25px;
+    width: 120px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: $primary;
+    color: $dark;
+    cursor: pointer;
+    transition: background-color .3s;
+    &:hover{
+        background-color: $hoverPrimary;
+    }
+}
+
+.forgotten-password-btn {
+    padding: 5px;
+    color: $primary;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.create-account-btn{
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 100px;
+    background-color: $dark;
+    transition: background-color .3s;
+    a{
+        color: $primary;
+        text-decoration: none;
+    }
+    &:hover{
+        background-color: $hoverDark;
+    }
+}

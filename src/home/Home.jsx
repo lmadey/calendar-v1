@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Colors } from "../Colors";
-import { Size } from "../Size"
+import { Size } from "../Size";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
-    /* background-size: auto; */
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    width: 100%;
     @media (min-width: ${Size.tablet}){
         align-items: flex-end;
     }
@@ -132,33 +132,20 @@ const CreateNewAccountBtn = styled.button`
 
 
 export const Login = () => {
-    const [isCreateNewAccount, setIsCreateNewAccount] = useState(false);
-
-    const handleCreateNewAccount = () => setIsCreateNewAccount(true);
-    const handleCancelBtn = () => setIsCreateNewAccount(false);
     return(
-        <Wrapper>
-            <Header><h2>{isCreateNewAccount ? "Create new account" : "Log in  to your account"}</h2></Header>
-            {!isCreateNewAccount && <LoginContainer>
-            <Form>
-                <Input placeholder="e-mail" type="text"/>
-                <Input placeholder="password" type="password"/>
-                <GoogleBtn><i className="fab fa-google"></i>Continue with Google</GoogleBtn>
-                <LogInBtn>Log in</LogInBtn>
-            </Form>
-            <ForgottenPasswordBtn>Forgot password?</ForgottenPasswordBtn>
-            <CreateNewAccountBtn onClick={handleCreateNewAccount}>Create new account</CreateNewAccountBtn>
-            </LoginContainer>}
-            {isCreateNewAccount && <LoginContainer>
-            <Form>
-                <Input placeholder="user name" type="text"/>
-                <Input placeholder="e-mail" type="text"/>
-                <Input placeholder="password" type="password"/>
-                <GoogleBtn><i className="fab fa-google"></i>Create account with Google</GoogleBtn>
-                <LogInBtn>Create account</LogInBtn>
-            </Form>
-                <CreateNewAccountBtn onClick={handleCancelBtn}>cancel</CreateNewAccountBtn>
-            </LoginContainer>}
-        </Wrapper>
+        <div className="login-wrapper">
+            <div className="login-header"><h2>Log in to your account</h2></div>
+            <div className="login-container">
+                <form className="login-form"> 
+                    <input className="login-input" placeholder="user name" type="text"/>
+                    <input className="login-input" placeholder="e-mail" type="text"/>
+                    <input className="login-input" placeholder="password" type="password"/>
+                    <button className="google-btn"><i className="fab fa-google"></i>Continue with Google</button>
+                    <button className="login-btn">Log in</button>
+                </form>
+                <button  className="forgotten-password-btn">Forgot password?</button>
+                <button className="create-account-btn"><Link to="./create-account">Create new account</Link></button>
+            </div>
+        </div>
     )
 } 

@@ -1,0 +1,193 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .login-wrapper {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+.login-container {
+  width: 100%;
+  background-color: #0000005c;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 425px) {
+  .login-container {
+    width: 65%;
+    -webkit-box-shadow: 20px 0 0 200px #0000005c;
+            box-shadow: 20px 0 0 200px #0000005c;
+  }
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    width: 45%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-container {
+    width: 30%;
+  }
+}
+
+.login-header {
+  height: 10vh;
+  width: 100%;
+  background-color: #332929;
+  z-index: 1;
+}
+
+.login-header h2 {
+  font-weight: 100;
+  line-height: 10vh;
+  padding-left: 10px;
+  color: #ffffff;
+}
+
+.login-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-input {
+  border-radius: 5px;
+  width: 90%;
+  height: 35px;
+  outline: none;
+  border: none;
+  color: #332929;
+  background-color: #eee6e6;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.google-btn {
+  border-radius: 5px;
+  width: 90%;
+  height: 35px;
+  outline: none;
+  border: none;
+  color: #332929;
+  background-color: #eee6e6;
+  padding-left: 10px;
+  margin-top: 20px;
+  line-height: 35px;
+  cursor: pointer;
+  -webkit-transition: background-color .5s;
+  transition: background-color .5s;
+}
+
+.google-btn i {
+  font-size: 16px;
+  padding-right: 10px;
+  color: #DB4437;
+}
+
+.google-btn:hover {
+  background-color: #ffffff;
+}
+
+.login-btn {
+  margin-top: 40px;
+  height: 25px;
+  width: 120px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #eeff00;
+  color: #332929;
+  cursor: pointer;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+.login-btn:hover {
+  background-color: #e0ee24;
+}
+
+.forgotten-password-btn {
+  padding: 5px;
+  color: #eeff00;
+  font-weight: 500;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.create-account-btn {
+  font-size: 20px;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 100px;
+  background-color: #332929;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+.create-account-btn a {
+  color: #eeff00;
+  text-decoration: none;
+}
+
+.create-account-btn:hover {
+  background-color: #4e4444;
+}
+/*# sourceMappingURL=App.css.map */
