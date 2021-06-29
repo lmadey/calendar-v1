@@ -13,7 +13,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
+  background-image: url("./img/web-2389250_1920.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -109,7 +109,7 @@ body {
   outline: none;
   border: none;
   color: #332929;
-  background-color: #eee6e6;
+  background-color: #fafadc;
   padding-left: 10px;
   margin-top: 20px;
 }
@@ -121,7 +121,7 @@ body {
   outline: none;
   border: none;
   color: #332929;
-  background-color: #eee6e6;
+  background-color: #fafadc;
   padding-left: 10px;
   margin-top: 20px;
   line-height: 35px;
@@ -189,5 +189,128 @@ body {
 
 .create-account-btn:hover {
   background-color: #4e4444;
+}
+
+.main-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calendar-container {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #fafadc;
+}
+
+@media (min-width: 425px) {
+  .calendar-container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .calendar-container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-container {
+    width: 60%;
+  }
+}
+
+.calendar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.week {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #332929;
+  padding-left: 5px;
+}
+
+.week div {
+  width: 15%;
+}
+
+@media (min-width: 1024px) {
+  .week {
+    display: none;
+  }
+}
+
+.deskop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .deskop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.days {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+}
+
+.day {
+  height: 50px;
+  border-left: none;
+  padding: 5px;
+  color: #332929;
+}
+
+.day:hover {
+  background-color: #eeff00;
+}
+
+@media (min-width: 425px) {
+  .day {
+    height: 65px;
+  }
+}
+
+@media (min-width: 768px) {
+  .day {
+    height: 80px;
+  }
+}
+
+.current-day {
+  background-color: #332929;
+  color: #ffffff;
+}
+
+.current-day:hover {
+  color: #332929;
+}
+
+.padding:hover {
+  background-color: #fafadc;
 }
 /*# sourceMappingURL=App.css.map */

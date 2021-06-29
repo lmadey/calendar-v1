@@ -13,7 +13,7 @@ $primary: #eeff00;
 $secondary: #4685ce;
 $white: #ffffff;
 $dark: #332929;
-$outline: #eee6e6;
+$outline: #fafadc;
 $google: #DB4437;
 $hoverPrimary: #e0ee24;
 $hoverDark: #4e4444;
@@ -28,7 +28,7 @@ $laptopL: 1440pX;
 
 .login-wrapper{
     align-items: center;
-    background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
+    background-image: url("./img/web-2389250_1920.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -161,5 +161,87 @@ $laptopL: 1440pX;
     }
     &:hover{
         background-color: $hoverDark;
+    }
+}
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar-container{
+    margin-top: 50px;
+    width: 100%;
+    background-color: $outline;
+    @media (min-width: $mobileL) {
+        width: 90%;
+    }
+    @media (min-width: $tablet) {
+        width: 70%;
+    }
+    @media (min-width: $laptop) {
+        width: 60%;
+    }
+}
+
+.calendar-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.week{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid $dark;
+    padding-left: 5px;
+    div{
+        width: 15%;
+    }
+    @media (min-width: $laptop) {
+        display: none;
+    }
+}
+.deskop{
+    display: none;
+    @media (min-width: $laptop){
+        display: flex;
+    }
+}
+.days{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+}
+.day{
+    height: 50px;
+    border-left: none;
+    padding: 5px;
+    color: $dark;
+    &:hover{
+        background-color: $primary;
+    }
+    @media (min-width: $mobileL) {
+        height: 65px;
+    }
+    @media (min-width: $tablet) {
+        height: 80px;
+    }
+}
+
+.current-day{
+    background-color: $dark;
+    color: $white;
+    &:hover{
+        color: $dark;
+    }
+}
+
+.padding{
+    &:hover{
+        background-color: $outline;
     }
 }
