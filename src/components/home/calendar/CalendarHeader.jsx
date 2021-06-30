@@ -3,9 +3,9 @@ import React from "react";
 export const CalendarHeader = ({handleNavNext, handleNavBack, dateDisplay}) => {
     return(
         <div className="calendar-header">
-            <button onClick={handleNavBack}>back</button>
+            <button onClick={handleNavBack}><i className="fas fa-chevron-left"></i></button>
             <p>{dateDisplay}</p>
-            <button onClick={handleNavNext}>next</button>
+            <button onClick={handleNavNext}><i class="fas fa-chevron-right"></i></button>
         </div>
     )
 }

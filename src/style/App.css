@@ -230,11 +230,34 @@ body {
 }
 
 .calendar-header {
+  height: 40px;
+  line-height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.calendar-header p {
+  font-size: 20px;
+  color: #332929;
+}
+
+.calendar-header button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.calendar-header button:hover {
+  color: #eeff00;
+}
+
+.calendar-header button i {
+  font-size: 16px;
 }
 
 .week {

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Colors } from "../Colors";
-import { Size } from "../Size";
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom"
+import { Size } from "../../Size";
+import { Colors } from "../../Colors";
+ 
 const Wrapper = styled.div`
     align-items: center;
     background-image: url("https://pixabay.com/get/g06a5819edf05e358eac39a79e10640f1ad8ce2336561478b499006464152ee8ff68206ffb8ceed1ddd57b60f69df8d3b81c6cabae9b5fbdd4131d7f654fd9d30_1920.jpg");
@@ -94,7 +94,7 @@ const GoogleBtn = styled.button`
     }
 `;
 
-const LogInBtn = styled.button`
+const CreateAccountBtn = styled.button`
     margin-top: 40px;
     height: 25px;
     width: 120px;
@@ -106,18 +106,7 @@ const LogInBtn = styled.button`
     cursor: pointer;
 `;
 
-const ForgottenPasswordBtn = styled.button`
-    padding: 5px;
-    color: ${Colors.primary};
-    font-weight: 500;
-    margin-top: 20px;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-`;
-
-const CreateNewAccountBtn = styled.button`
+const CancelBtn = styled.button`
     background-color: transparent;
     color: ${Colors.primary};
     font-size: 20px;
@@ -130,21 +119,21 @@ const CreateNewAccountBtn = styled.button`
     background-color: ${Colors.dark};
 `;
 
-
-export const Login = () => {
+export const CreateAccount = () => {
     return(
         <div className="login-wrapper">
-            <div className="login-header"><h2>Log in to your account</h2></div>
+            <div className="login-header"><h2>Create new account</h2></div>
             <div className="login-container">
                 <form className="login-form"> 
+                    <input className="login-input" placeholder="user name" type="text"/>
                     <input className="login-input" placeholder="e-mail" type="text"/>
                     <input className="login-input" placeholder="password" type="password"/>
-                    <button className="google-btn"><i className="fab fa-google"></i>Continue with Google</button>
-                    <button className="login-btn"><Link to="./home">Log in</Link></button>
+                    <button className="google-btn"><i className="fab fa-google"></i>Create account with Google</button>
+                    <button className="login-btn">Create account</button>
                 </form>
-                <button  className="forgotten-password-btn">Forgot password?</button>
-                <button className="create-account-btn"><Link to="./create-account">Create new account</Link></button>
+                <button className="create-account-btn"><Link to="./login">cancel</Link></button>
             </div>
         </div>
     )
-} 
+}
+

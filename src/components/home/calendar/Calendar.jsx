@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Day } from "./Day";
 import { CalendarHeader } from "./CalendarHeader";
+import { UseDate } from "../../../hooks/UseDate";
 
-export const Calendar = ({ days, setClickDay, handleNavBack, handleNavNext, dateDisplay }) => {
+export const Calendar = () => {
+
+    const [nav, setNav] = useState(0);
+    const [days, setDays] = useState([]);
+    const [dateDisplay, setDateDisplay] = useState("");
+    const [clickDay, setClickDay] = useState();
+    // const [events, setEvents] = useState(localStorage.getItem("events") ? JSON.parse(localStorage.getItem("events")) : []);
+    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+  
+    const handleNavNext = () => {
+      setNav(nav + 1);
+    }
+    const handleNavBack = () => {
+      setNav(nav - 1);
+    }
+
+    UseDate(nav, setDays, weekdays, setDateDisplay);
 
     return(
         <div className="main-container">
