@@ -1,3 +1,32 @@
+//COLORS
+$primary: #a72c2c;
+$secondary: #eeff00;
+$white: #ffffff;
+$dark: #302929;
+$outline: #e2ecee;
+$google: #DB4437;
+$hoverSecondary: #e0ee24;
+$hoverDark: #4e4444;
+$secondaryHover: #72dd80;
+
+//LANGUAGE COLORS
+$HTML: #FF5733;
+$CSS: #2874A6;
+$JS: #F1C40F;
+$PHP: #A569BD;
+$JAVA: #E74C3C;
+$RUBY: #A93226;
+$C: #3498DB;
+$CSHARP: #6C3483;
+$REACT: #5DADE2;
+$PHYTON: #F1C40F;
+$KOTLIN: #F39C12;
+
+//SIZES
+$mobileL: 425px;
+$tablet: 768px;
+$laptop: 1024px;
+$laptopL: 1440pX;
 *{
     padding: 0;
     margin: 0;
@@ -6,23 +35,10 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background-image: linear-gradient(120deg, black, white);
+    // background-color: $dark;
 }
-
-//COLORS
-$primary: #eeff00;
-$secondary: #4685ce;
-$white: #ffffff;
-$dark: #332929;
-$outline: #fafadc;
-$google: #DB4437;
-$hoverPrimary: #e0ee24;
-$hoverDark: #4e4444;
-
-//SIZES
-$mobileL: 425px;
-$tablet: 768px;
-$laptop: 1024px;
-$laptopL: 1440pX;
 
 //LOGIN HOME
 
@@ -64,13 +80,13 @@ $laptopL: 1440pX;
 .login-header{
     height: 10vh;
     width: 100%;
-    background-color: $dark;
-    z-index: 1;
+    background-color: $primary;
     h2{
         font-weight: 100;
         line-height: 10vh;
         padding-left: 10px;
-        color: $white
+        color: $white;
+        z-index: 1;
     }
 }
 
@@ -87,7 +103,7 @@ $laptopL: 1440pX;
     height: 35px;
     outline: none;
     border: none;
-    color: $dark;
+    color: $primary;
     background-color: $outline;
     padding-left: 10px;
     margin-top: 20px;
@@ -101,7 +117,7 @@ $laptopL: 1440pX;
     height: 35px;
     outline: none;
     border: none;
-    color: $dark;
+    color: $primary;
     background-color: $outline;
     padding-left: 10px;
     margin-top: 20px;
@@ -118,25 +134,27 @@ $laptopL: 1440pX;
     }
 }
 
-.login-btn{
-    margin-top: 40px;
+.main-btn{
     height: 25px;
     width: 120px;
     border-radius: 5px;
     outline: none;
     border: none;
-    background-color: $primary;
+    background-color: $secondary;
     color: $dark;
     cursor: pointer;
     transition: background-color .3s;
     &:hover{
-        background-color: $hoverPrimary;
+        background-color: $hoverSecondary;
     }
+}
+.login{
+    margin-top: 40px;
 }
 
 .forgotten-password-btn {
     padding: 5px;
-    color: $primary;
+    color: $secondary;
     font-weight: 500;
     margin-top: 20px;
     font-size: 20px;
@@ -153,14 +171,14 @@ $laptopL: 1440pX;
     border-radius: 5px;
     position: absolute;
     bottom: 100px;
-    background-color: $dark;
+    background-color: $primary;
     transition: background-color .3s;
     a{
-        color: $primary;
+        color: $secondary;
         text-decoration: none;
     }
     &:hover{
-        background-color: $hoverDark;
+        background-color: $primary;
     }
 }
 
@@ -174,26 +192,28 @@ $laptopL: 1440pX;
 .calendar-container{
     margin-top: 50px;
     width: 100%;
-    background-color: $outline;
+    background-color: $primary;
     @media (min-width: $mobileL) {
-        width: 90%;
+        width: 80%;
     }
     @media (min-width: $tablet) {
         width: 70%;
     }
     @media (min-width: $laptop) {
-        width: 60%;
+        width: 65%;
     }
 }
 
 .calendar-header{
+    border: 2px solid $primary;
+    border-bottom: none;
     height: 40px;
     line-height: 40px;
     display: flex;
     justify-content: space-around;
+    background-color: $white;
     p{
         font-size: 20px;
-        color: $dark;
     }
     button{
         border: none;
@@ -201,9 +221,6 @@ $laptopL: 1440pX;
         background-color: transparent;
         cursor: pointer;
         padding: 8px;
-        &:hover{
-            color: $primary;
-        }
         i{
             font-size: 16px;
         }
@@ -211,12 +228,15 @@ $laptopL: 1440pX;
 }
 
 .week{
+    border-right: 2px solid $primary;
+    border-left: 2px solid $primary;
     display: flex;
     width: 100%;
     height: 40px;
     line-height: 40px;
-    border-bottom: 1px solid $dark;
+    border-bottom: 1px solid $primary;
     padding-left: 5px;
+    background-color: $white;
     div{
         width: 15%;
     }
@@ -236,31 +256,275 @@ $laptopL: 1440pX;
     width: 100%;
 }
 .day{
-    height: 50px;
+    height: 60px;
     border-left: none;
     padding: 5px;
-    color: $dark;
+    color: $white;
     &:hover{
-        background-color: $primary;
+        background-color: $secondary;
+        color: $primary;
     }
     @media (min-width: $mobileL) {
-        height: 65px;
+        height: 80px;
     }
     @media (min-width: $tablet) {
-        height: 80px;
+        height: 100px;
+    }
+    div{
+        &:hover{
+            &::-webkit-scrollbar-track {
+                background: $primary;
+            }
+        }
     }
 }
 
 .current-day{
-    background-color: $dark;
-    color: $white;
-    &:hover{
-        color: $dark;
-    }
+    background-color: $outline;
+    color: $primary;
 }
 
 .padding{
     &:hover{
-        background-color: $outline;
+        background-color: $primary;
     }
 }
+
+//EVENT MODULE
+
+.event-module{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+
+.event-container{
+    height: 270px;
+    width: 600px;
+}
+
+.event-form{
+    background-color: $outline;
+    border-radius: 10px;
+    color: $dark;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    div{
+        display: flex;
+        height: 30px;
+        p{
+            margin-right: 10px;
+        }
+        select{
+            height: 25px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+    }
+    button{
+        height: 30px;
+    }
+}
+
+
+.time-input{
+    height: 25px;
+    width: 40px;
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+
+.left{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.right{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.add{
+    width: 90%;
+}
+
+.exit-btn{
+    position: relative;
+    top: 30px;
+    left: 500px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    i{
+        color: $dark;
+        font-size: 20px;
+        transition: transform .3s;
+        &:hover{
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+//  EVENT
+
+.events-container{
+    width: 100%;
+    height: 65px;
+    &::-webkit-scrollbar {
+        width: 3.5px;
+      }
+    &::-webkit-scrollbar-track {
+        background: $outline;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $HTML;
+    }
+}
+
+.event{
+    width: 95%;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    cursor: pointer;
+}
+.HTML{
+    background-color: $HTML;
+}
+.CSS{
+    background-color: $CSS;
+}
+.JS{
+    background-color: $JS;
+}
+.Java{
+    background-color: $JAVA;
+}
+.PHP{
+    background-color: $PHP;
+}
+.Phyton{
+    background-color: $PHYTON;
+}
+.C{
+    background-color: $C;
+}
+.CSharp{
+    background-color: $CSHARP;
+}
+.Ruby{
+    background-color: $RUBY;
+}
+.Kotlin{
+    background-color: $KOTLIN;
+}
+.React{
+    background-color: $REACT;
+}
+
+//STATISTICS
+
+.stat-container{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 100%;
+    @media (min-width: $mobileL) {
+        width: 80%;
+    }
+    @media (min-width: $tablet) {
+        width: 70%;
+    }
+    @media (min-width: $laptop) {
+        width: 65%;
+    }
+}
+.stats{
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+    height: 400px;
+    border-left: 5px solid $primary;
+    border-bottom: 1px solid $primary;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+.stat-lines{
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    div{
+        border-top: 1px solid rgba(139, 139, 139, 0.527);
+        height: 90px;
+        p{
+            position: absolute;
+            left: 5px;
+        }
+    }
+}
+
+.stat-column{
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    div{
+        height: 400px;
+        // border-left: 1px solid black;
+        // border-right: 1px solid black;
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        div{
+            margin-bottom: 10px;
+            width: 20px;
+            height: 100px;
+            p{  
+                margin-bottom: 15px;
+                transform: rotate(270deg);
+                color: $dark;
+                font-weight: 300;
+            }
+        }
+    }
+}
+.doughnut{
+    border: 11px solid red;
+    margin-bottom: 5vh;
+    width: 40vw;
+    height: 350px;
+}
+

@@ -1,9 +1,9 @@
 import './style/App.css';
 import React from "react";
-import { Login } from "./components/login/Login";
-import { CreateAccount } from "./components/login/CreateAccount"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Calendar } from "./components/home/calendar/Calendar";
+import { Login } from "./components/Login";
+import { CreateAccount } from "./components/CreateAccount"
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Home } from "./components/Home";
 
 function App() {
 
@@ -15,8 +15,8 @@ function App() {
       <Route path="/create-account">
         <CreateAccount />
       </Route>
-      <Route path="/home"> n 
-        <Calendar/>
+      <Route path="/home">
+        <Home />
       </Route>
     </Router>
   );
