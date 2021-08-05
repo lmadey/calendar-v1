@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux"
 
-export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays, lastDays ) => {
+export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays ) => {
 
     const eventElements = useSelector(store => store.setEvent)
     const eventDay = (date) => eventElements.filter(event => event.date === date);
@@ -33,7 +33,7 @@ export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays, la
         const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
 
         for(let i = 1; i <= paddingDays + daysInMonth; i++){
-            const dayString = `${i - paddingDays}/${month + 1}/${year}`;
+            const dayString = `${(`0${i - paddingDays}`).slice(-2)}/${(`0${month + 1}`).slice(-2)}/${year}`;
             if(i > paddingDays){
                 daysArr.push({
                     value: i - paddingDays,
@@ -55,9 +55,9 @@ export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays, la
             const dateM = date.getMonth();
             const dateY = date.getFullYear();
             const dateShort = `${dateD} ${date.toLocaleString("en-GB", {month: "short"})}`;
-            const dateString = `${dateD}/${dateM + 1}/${dateY}`;
+            const dateString = `${(`0${dateD}`).slice(-2)}/${(`0${dateM + 1}`).slice(-2)}/${dateY}`;
             lastDaysArr.unshift({
-                date: `${dateD}/${dateM + 1}/${dateY}`,
+                date: dateString,
                 text: dateShort,
                 event: eventDay(dateString)
             })
@@ -65,7 +65,6 @@ export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays, la
         
         setDays(daysArr);
         setLastDays(lastDaysArr);
-        console.log(eventElements);
 
     },[nav, eventElements]);
 }

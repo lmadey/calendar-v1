@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from "react";
-import { Calendar } from "./Calendar";
-import { EventModule } from "./EventModule";
-import { Statistics } from "./Statistics"
+import { Calendar } from "./Calendar/Calendar";
+import { EventModule } from "./eventModule/EventModule";
+import { EventCards } from "./eventCards/EventCards";
+import { Statistics } from "./Statistics";
+import { Header } from "./Header";
 import { useSelector } from "react-redux";
 
 export const Home = () => {
     
     const isEvent = useSelector(state => state.isEvent);
+    const isEventCards = useSelector(state => state.setEventCards);
     const [clickDate, setClickDate] = useState();
     const [lastDays, setLastDays] = useState([]);
     const [days, setDays] = useState([]);
@@ -17,10 +20,11 @@ export const Home = () => {
       localStorage.setItem("events", JSON.stringify(EventElements))
     }, [EventElements])
     return(
-        <>
-            <div className="login-header"><h2>Welcome Nobody</h2></div>
-            <div className="main-container">
+        <>  
+            <Header />
+            <div className="home">
                 {isEvent && <EventModule days={days} clickDate={clickDate}/>}
+                {isEventCards && <EventCards clickDate={clickDate}/>}
                 <Calendar setClickDate={setClickDate} setLastDays={setLastDays} lastDays={lastDays} days={days} setDays={setDays}/>
                 <Statistics lastDays={lastDays}/>
             </div>

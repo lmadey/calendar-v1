@@ -9,6 +9,7 @@ export const Statistics = ({ lastDays, eventElements, days }) => {
                 datasets: [{
                     label: lastDays.map(day => day.event.text),
                     data: lastDays.map((day) => day.event.reduce((acc, cur) => acc + cur.time, 0)),
+                    // data: lastDays.filter(item => item.event).map((day) => day.event.time),
                     backgroundColor: [
                         'rgb(240, 22, 84)',
                         'rgb(21, 221, 235)',

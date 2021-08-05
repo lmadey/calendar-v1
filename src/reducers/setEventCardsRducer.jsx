@@ -1,6 +1,6 @@
-export const isEventReducer = (state = false, action) => {
+export const setEventCardsReducer = (state = false, action) => {
     switch(action.type){
-        case "SET_IS_EVENT":
+        case "SET_EVENT_CARDS":
             return !state;
         default:
             return state;

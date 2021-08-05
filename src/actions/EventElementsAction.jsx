@@ -1,11 +1,12 @@
-export const createNewEvent = ({name, id, time, date}) => {
+export const createNewEvent = ({name, time, date, color}) => {
     return{
         type: "CREATE_NEW_EVENT",
         payload: {
             id: Math.random() * 1000,
             name,
             time,
-            date
+            date,
+            color
         }
     }
 }
