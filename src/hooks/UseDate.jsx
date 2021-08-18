@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux"
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
-export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays ) => {
+export const UseDate = ( nav, setDays, weekdays ) => {
 
+    const [dateDisplay, setDateDisplay] = useState("")
     const eventElements = useSelector(store => store.setEvent)
     const eventDay = (date) => eventElements.filter(event => event.date === date);
-        
+    
     useEffect(() => {
 
         const dt = new Date();
@@ -29,7 +31,6 @@ export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays ) =
         })
         setDateDisplay(`${dt.toLocaleDateString("en-GB", {month: "long"})} ${year}`);
         const daysArr = [];
-        const lastDaysArr =[];
         const paddingDays = weekdays.indexOf(dateString.split(", ")[0]);
 
         for(let i = 1; i <= paddingDays + daysInMonth; i++){
@@ -44,27 +45,15 @@ export const UseDate = ( nav, setDays, weekdays, setDateDisplay, setLastDays ) =
             } else {
                 daysArr.push({
                 value: "padding",
-                event: null,
+                event: [],
                 isCurrentDay: false,
                 date: ""
             })}
         }
-        for(let i = 1; i <= 7; i++){
-            const date = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
-            const dateD = date.getDate();
-            const dateM = date.getMonth();
-            const dateY = date.getFullYear();
-            const dateShort = `${dateD} ${date.toLocaleString("en-GB", {month: "short"})}`;
-            const dateString = `${(`0${dateD}`).slice(-2)}/${(`0${dateM + 1}`).slice(-2)}/${dateY}`;
-            lastDaysArr.unshift({
-                date: dateString,
-                text: dateShort,
-                event: eventDay(dateString)
-            })
-        }
-        
-        setDays(daysArr);
-        setLastDays(lastDaysArr);
 
+        setDays(daysArr);
+        
     },[nav, eventElements]);
+
+    return [dateDisplay, setDateDisplay];
 }

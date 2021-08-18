@@ -24,14 +24,16 @@ export const Day = ({ setClickDate, day }) => {
     return(
         <div onClick={handleClickOnDay} className={className}>{day.value === "padding" ? "" : day.value}
 
-            {day.event && <div className="day__event-container">
-            {eventElements.filter((event) => event.date === day.date).map((eventElement, index) => (
-                <EventElement 
-                eventElement={eventElement}
-                key={index}/>
-            ))}
+            <div className="day__event-container">
+                {eventElements.filter((event) => event.date === day.date).slice(0, 2).map((eventElement, index) => (
+                    <EventElement 
+                    eventElement={eventElement}
+                    key={index}/>
+                ))}
+                
+                {day.event.length > 2 ? <div className="event-element event-element--more-events">+ {day.event.length - 2} more</div> : ""}
             
-            </div>}
+            </div>
         </div>
     )
 }

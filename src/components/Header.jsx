@@ -7,7 +7,7 @@ export const Header = () => {
         <div className="header">
             <SideBar />
             <div className="profile-photo profile-photo--mid"></div>
-            <h2>Ksenia Kras</h2>
+            <h2>Franciszek Dolas</h2>
         </div>
     )
 }

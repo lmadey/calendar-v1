@@ -24,7 +24,7 @@ export const SetTimer = ({hours, setHours, setIsRunActive, isRunActive, isSetTim
                 <button 
                 className="timer__btn"
                 onClick={handleIsRunActive}>
-                    {isRunActive ? <i class="far fa-pause-circle"></i> : <i class="far fa-play-circle"></i>}
+                    {isRunActive ? <i className="far fa-pause-circle"></i> : <i class="far fa-play-circle"></i>}
                 </button>
             </div>}
         </>

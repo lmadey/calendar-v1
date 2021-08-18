@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Login = () => {
     return(
         <div className="login-wrapper">
-            <div className="login-header"><h2>Log in to your account</h2></div>
+            <div className="header"><h2>Log in to your account</h2></div>
             <div className="login-container">
                 <form className="login-form"> 
                     <input className="login-input" placeholder="e-mail" type="text"/>

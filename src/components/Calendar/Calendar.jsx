@@ -3,13 +3,14 @@ import { Day } from "./Day";
 import { CalendarHeader } from "./CalendarHeader";
 import { UseDate } from "../../hooks/UseDate";
 
-export const Calendar = ({ setClickDate, setLastDays, lastDays, days, setDays }) => {
+const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+const weekdaysShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+export const Calendar = ({ setClickDate, days, setDays }) => {
     
     const [nav, setNav] = useState(0);
-    const [dateDisplay, setDateDisplay] = useState("");
-    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    const weekdaysShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-  
+    const [dateDisplay] = UseDate(nav, setDays, weekdays);
+
     const handleNavNext = () => {
       setNav(nav + 1);
     }
@@ -17,12 +18,8 @@ export const Calendar = ({ setClickDate, setLastDays, lastDays, days, setDays })
       setNav(nav - 1);
     }
 
-    UseDate(nav, setDays, weekdays, setDateDisplay, setLastDays, lastDays);
     return(
         <div className="calendar">
-            <div className="calendar__bg-circle circle-1"></div>
-            <div className="calendar__bg-circle circle-2"></div>
-            <div className="calendar__bg-circle circle-3"></div>
             <div className="calendar__container">
                 
                 <CalendarHeader 

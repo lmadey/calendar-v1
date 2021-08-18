@@ -11,7 +11,6 @@ export const AddNewCategory = ({ eventsTypes, setEventsTypes }) => {
     const handleIsCategory = () => {
         setIsAddCategory(!isAddCategory)
     }
-    console.log(inputText.length);
     
     const newEvenType = () => {
         if(inputText.length > 2){

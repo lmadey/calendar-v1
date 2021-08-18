@@ -7,26 +7,40 @@ import { useEffect } from "react";
 export const SetEvent = ({ eventsTypes }) => {
     
     const dispatch = useDispatch();
-    const eventTitle = useSelector(store => store.eventName)
-    
+    const eventTitle = useSelector(store => store.eventName);
+    const [isSelectActive, setIsSelectActive] = useState(false);
+    const [eventsTypesLength, setEventsTypesLength] = useState(1);
+
     useEffect(() => {
-        const color = eventsTypes.filter(item => item.name === eventTitle).map(item => item.color)
-        dispatch(eventColor(color))
-    }, [eventTitle])
-    
-    const handleEventTitle = (e) => {
-        dispatch(eventName(e.target.value))
-    }
+        if(isSelectActive){
+            setEventsTypesLength(eventsTypes.length);
+        }else{
+            setEventsTypesLength(1);
+        }
+    }, [isSelectActive])
 
     return(
         <div className="set-event">
             <i className="far fa-calendar-check"></i>
             <p>Choose category</p>
-            <select value={eventTitle} onChange={handleEventTitle} name="languages">
-                {eventsTypes.map((type, index) => (
-                    <option color={type.color} name={type} key={index}>{type.name}</option>
+            <div 
+            className={!isSelectActive ? "set-event__select" : "set-event__select set-event__select--active"}
+            style={{height: eventsTypesLength * 22 + "px"}}
+            onClick={() => (
+                setIsSelectActive(!isSelectActive)
+            )}>
+                <div className="set-event__select__option set-event__select__option--title"><p>{eventTitle}</p><i className="fas fa-chevron-down"></i></div>
+                {eventsTypes.map(type => (
+                    <div 
+                    className="set-event__select__option"
+                    onClick={() => {
+                        dispatch(eventName(type.name));
+                        dispatch(eventColor(type.color));
+                    }}>
+                        <p>{type.name}</p>
+                    </div>
                 ))}
-            </select>
+            </div>
         </div>
     )
 }

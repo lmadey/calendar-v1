@@ -5,7 +5,7 @@ export const ProfileContainer = ({clickDate}) => {
         <div className="profile-container__header">
             <div className="profile-container__name">
                 <div className="profile-photo"></div>
-                <p>Ksenia Kras</p>
+                <p>Franciszek Dolas</p>
             </div>
             <div className="day-events__time">
                 <i className="far fa-clock"></i>
