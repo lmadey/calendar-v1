@@ -1,0 +1,122 @@
+@import "../../../styles//variables.scss";
+@import "../../../styles/typography.scss";
+
+.text {
+  color: $title-active;
+}
+
+.displayLarge {
+  @extend .displayLarge;
+}
+
+.displayMedium {
+  @extend .displayMedium;
+}
+
+.displaySmall {
+  @extend .displaySmall;
+}
+
+.displayLargeBold {
+  @extend .displayLargeBold;
+}
+
+.displayMediumBold {
+  @extend .displayMediumBold;
+}
+
+.displaySmallBold {
+  @extend .displaySmallBold;
+}
+
+.textLarge {
+  @extend .textLarge;
+}
+
+.textMedium {
+  @extend .textMedium;
+}
+
+.textSmall {
+  @extend .textSmall;
+}
+
+.textXsmall {
+  @extend .textXsmall;
+}
+
+.xSmallBold {
+  @extend .xSmallBold;
+}
+
+.linkLarge {
+  @extend .linkLarge;
+}
+
+.linkMedium {
+  @extend .linkMedium;
+}
+
+.linkSmall {
+  @extend .linkSmall;
+}
+
+.linkXsmall {
+  @extend .linkXsmall;
+}
+
+.mobileLinkSmall {
+  @extend .mobileLinkSmall;
+}
+
+.mobileLinkXsmall {
+  @extend .mobileLinkXsmall;
+}
+
+.primaryDefault {
+  color: $primary-default;
+}
+
+.primaryDark {
+  color: $primary-dark;
+}
+
+.errorDefault {
+  color: $error-default;
+}
+
+.errorDark {
+  color: $error-dark;
+}
+
+.gradientAccent {
+  color: $gradiend-accent;
+}
+
+.black {
+  color: #000;
+}
+
+.white {
+  color: #fff;
+}
+
+.titleActive {
+  color: $title-active;
+}
+
+.secondaryDefault {
+  color: $secondary-default;
+}
+
+.successDefaultString {
+  color: $success-default-string;
+}
+
+.placeholder {
+  color: $placeholder;
+}
+
+.opacity {
+  opacity: 0.56;
+}

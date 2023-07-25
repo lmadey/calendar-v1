@@ -1,0 +1,48 @@
+@import "../../../styles/variables.scss";
+
+.calendarCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-light;
+  height: 64px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+
+  &[data-with-opacity="true"] {
+    opacity: 0.5;
+  }
+
+  &[data-is-current-day="true"] {
+    background-color: $primary-default;
+    p {
+      color: $off-white;
+    }
+  }
+
+  &[data-is-selected-day="true"] {
+    background-color: $secondary-darkmode;
+    p {
+      color: $title-active;
+    }
+  }
+}
+
+.notify {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $off-white;
+  box-shadow: 0px 0px 25px -15px rgba(66, 68, 90, 1);
+
+  p {
+    color: $title-active !important;
+  }
+}
