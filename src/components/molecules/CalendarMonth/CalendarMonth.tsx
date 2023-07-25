@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux-app/hooks";
 import { selectSpecyficDate } from "../../../redux-app/features/calendar/calculate-selected-date-slice";
 import { setSelectedMonth } from "../../../redux-app/features/calendar/selected-date-slice";
 import { CalendarCell } from "../../atoms/CalendarCell/CalendarCell";
+import { CalendarWeekdayName } from "../../atoms/CalendarWeekdayName/CalendarWeekdayName";
 
 export const CalendarMonth: React.FC = () => {
   const { shortWeekDays } = languages.PL;
@@ -22,7 +23,7 @@ export const CalendarMonth: React.FC = () => {
   return (
     <div className={styles.calendarWrapper}>
       {shortWeekDays.map((day) => (
-        <div key={day}>{day}</div>
+        <CalendarWeekdayName weekname={day} key={day} />
       ))}
       {month.map((day) => (
         <CalendarCell day={day} key={day.dateString} />

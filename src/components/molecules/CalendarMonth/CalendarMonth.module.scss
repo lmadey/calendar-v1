@@ -1,7 +1,7 @@
 .calendarWrapper {
   width: 100%;
-  max-width: 600px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-column-gap: 12px;
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
 }

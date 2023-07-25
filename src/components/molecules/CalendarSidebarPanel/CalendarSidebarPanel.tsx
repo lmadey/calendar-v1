@@ -20,9 +20,9 @@ export const CalendarSidebarPanel: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.dateInfo}>
-        <Text>{year}</Text>
-        <Text>{monthsNames[month]}</Text>
-        <Text>{`${weekDays[weekday]} ${day}`}</Text>
+        <Text textLarge>{year}</Text>
+        <Text primaryDefault xSmallBold>{`${day} ${monthsNames[month]}`}</Text>
+        <Text textLarge>{weekDays[weekday]}</Text>
       </div>
     </div>
   );

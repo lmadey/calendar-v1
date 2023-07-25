@@ -4,7 +4,7 @@ import { Calendar } from "../../components/organisms/Calendar/Calendar";
 
 export const Home: React.FC = () => {
   return (
-    <main>
+    <main className={styles.main}>
       <Calendar />
     </main>
   );
