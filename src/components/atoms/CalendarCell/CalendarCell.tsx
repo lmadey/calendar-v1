@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./CalendarCell.module.scss";
 import {
   CalendarDay,
   DayDate,
   setSelectedDay,
-} from "../../../redux-app/features/calendar/selected-date-slice";
+} from "../../../redux/features/selectedDate/selected-date-slice";
 import {
   getDayDateByDate,
   getDayDateByNumbers,
 } from "../../../utils/date-calculate";
-import { useAppDispatch, useAppSelector } from "../../../redux-app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/redux-app/hooks";
 import {
   decrementMonthCounter,
   incrementMonthCounter,
-} from "../../../redux-app/features/calendar/calculate-selected-date-slice";
+} from "../../../redux/features/calculateDate/calculate-date-slice";
 import Text from "../Text/Text";
+import { endpoints } from "../../../endpoints/endpoints";
 
 interface Props {
   day: CalendarDay;
@@ -22,7 +23,7 @@ interface Props {
 
 export const CalendarCell: React.FC<Props> = (props) => {
   const selectedDay: DayDate | null = useAppSelector(
-    (state) => state.slectedDateSlice.selectedDay
+    (state) => state.slectedDate.selectedDay
   );
   const { date, dateString, type } = props.day;
   const isTodayDate = getDayDateByDate(new Date()).dateString === dateString;

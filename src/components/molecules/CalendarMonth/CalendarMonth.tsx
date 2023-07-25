@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import styles from "./CalendarMonth.module.scss";
 import { languages } from "../../../languages/languages";
-import { useAppDispatch, useAppSelector } from "../../../redux-app/hooks";
-import { selectSpecyficDate } from "../../../redux-app/features/calendar/calculate-selected-date-slice";
-import { setSelectedMonth } from "../../../redux-app/features/calendar/selected-date-slice";
+import { useAppDispatch, useAppSelector } from "../../../redux/redux-app/hooks";
+import { selectSpecyficDate } from "../../../redux/features/calculateDate/calculate-date-slice";
+import { setSelectedMonth } from "../../../redux/features/selectedDate/selected-date-slice";
 import { CalendarCell } from "../../atoms/CalendarCell/CalendarCell";
 import { CalendarWeekdayName } from "../../atoms/CalendarWeekdayName/CalendarWeekdayName";
 
 export const CalendarMonth: React.FC = () => {
   const { shortWeekDays } = languages.PL;
-  const month = useAppSelector((state) => state.slectedDateSlice.selectedMonth);
+  const month = useAppSelector((state) => state.slectedDate.selectedMonth);
 
   const dispatch = useAppDispatch();
   useEffect(() => {

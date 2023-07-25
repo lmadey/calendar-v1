@@ -1,0 +1,3 @@
+{
+  "/api/eventsByDate/:dateString": "/events?date.dateString=:dateString"
+}

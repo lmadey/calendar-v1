@@ -2,7 +2,7 @@ import {
   CalendarDay,
   DayDate,
   MonthType,
-} from "../redux-app/features/calendar/selected-date-slice";
+} from "../redux/features/selectedDate/selected-date-slice";
 
 export const getDayDateByDate = (date: Date): DayDate => {
   const day = date.getDate();
@@ -16,7 +16,7 @@ export const getDayDateByDate = (date: Date): DayDate => {
       year,
       weekday,
     },
-    dateString: `${day}/${month}/${year}`,
+    dateString: `${day}-${month}-${year}`,
   };
 };
 
@@ -33,7 +33,7 @@ export const getDayDateByNumbers = (
       year,
       weekday,
     },
-    dateString: `${day}/${month}/${year}`,
+    dateString: `${day}-${month}-${year}`,
   };
 };
 
@@ -48,7 +48,7 @@ export const getDaysOfMonth = (
   for (let i = 0; i < days; i++) {
     daysInMonth.push({
       type: monthType,
-      dateString: `${i + 1}/${date.getMonth()}/${date.getFullYear()}`,
+      dateString: `${i + 1}-${date.getMonth()}-${date.getFullYear()}`,
       date: {
         day: i + 1,
         month: date.getMonth(),
@@ -135,9 +135,3 @@ export const getMonth = (
 
   return [...lastDaysOfLastMont, ...currentDays, ...firstDaysOfNextMonth];
 };
-
-// interface DayDate its shoild return day from 1 to end of motnh, month from 0 to 11 and weekday from 0 to 6.
-
-// dateSring should return day from 1 to end of month, month from 0 to 11
-
-// getDaysOfMonth should return

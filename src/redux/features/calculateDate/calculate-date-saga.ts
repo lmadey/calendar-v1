@@ -1,10 +1,10 @@
 import { takeEvery, put, select } from "redux-saga/effects";
-import { setSelectedMonth } from "../features/calendar/selected-date-slice";
+import { setSelectedMonth } from "../selectedDate/selected-date-slice";
 import {
   decrementMonthCounter,
   incrementMonthCounter,
-} from "../features/calendar/calculate-selected-date-slice";
-import { RootState } from "../store";
+} from "./calculate-date-slice";
+import { RootState } from "../../redux-app/store";
 
 interface SelectedDate {
   year: number;
@@ -13,10 +13,10 @@ interface SelectedDate {
 
 function* updateMonth() {
   const date: SelectedDate = yield select(
-    (state: RootState) => state.calculateSlectedDateSlice.selectedDate
+    (state: RootState) => state.calculateDate.selectedDate
   );
   const monthCounter: number = yield select(
-    (state: RootState) => state.calculateSlectedDateSlice.monthCounter
+    (state: RootState) => state.calculateDate.monthCounter
   );
   const { year, month } = date;
   yield put(setSelectedMonth({ year, month, monthCounter }));
