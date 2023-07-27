@@ -23,6 +23,9 @@ const PL = {
     "Grudzień",
   ],
   shortWeekDays: ["Pn", "Wt", "Śr", "Cz", "Pt", "Sb", "Nd"],
+  labels: {
+    addNewEvent: "Dodaj nowe zdarzenie",
+  },
 };
 
 export const languages = {

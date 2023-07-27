@@ -12,6 +12,7 @@ import {
   postNewEvent,
   CalendarEvent,
 } from "../../../redux/features/calendarEvents/event-slice";
+import { setModalVisible } from "../../../redux/features/modal/modal-slice";
 export const CalendarSidebarPanel: React.FC = () => {
   const dispatch = useAppDispatch();
   const { weekDays, monthsNames } = languages.PL;
@@ -34,6 +35,13 @@ export const CalendarSidebarPanel: React.FC = () => {
     dispatch(postNewEvent(event));
   };
 
+  const openModal = () => {
+    dispatch(setModalVisible("visible"));
+  };
+
+  const state = useAppSelector((s) => s.modal.modalState);
+  console.log(state);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.dateInfo}>
@@ -41,7 +49,7 @@ export const CalendarSidebarPanel: React.FC = () => {
         <Text primaryDefault xSmallBold>{`${day} ${monthsNames[month]}`}</Text>
         <Text textLarge>{weekDays[weekday]}</Text>
       </div>
-      <button onClick={handleAddTodo}>add todo</button>
+      <button onClick={openModal}>add todo</button>
     </div>
   );
 };
