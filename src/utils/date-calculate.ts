@@ -1,8 +1,8 @@
 import {
   CalendarDay,
-  DayDate,
   MonthType,
 } from "../redux/features/selectedDate/selected-date-slice";
+import { DayDate } from "../types/types";
 
 export const getDayDateByDate = (date: Date): DayDate => {
   const day = date.getDate();

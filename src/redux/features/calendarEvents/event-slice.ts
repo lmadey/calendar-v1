@@ -1,23 +1,6 @@
-import { PostDataStatus } from "./../../../types/types";
+import { CalendarEvent, PostDataStatus } from "./../../../types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { FetchDataStatus } from "../../../types/types";
-import { DayDate } from "../selectedDate/selected-date-slice";
-
-export type CalendarEvent =
-  | { type: "BIRTHDAY"; label: string; date: DayDate }
-  | { type: "ANNIVERSARY"; label: string; date: DayDate }
-  | { type: "REMINDER"; label: string; date: DayDate }
-  | { type: "TODO"; label: string; date: DayDate }
-  | { type: "ACTIVITY"; label: string; date: DayDate; time: number }
-  | {
-      type: "EVENT";
-      label: string;
-      date: DayDate;
-      time: {
-        hour: number;
-        minute: number;
-      };
-    };
 
 interface MonthEvent {
   day: string;

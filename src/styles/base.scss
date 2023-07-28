@@ -8,3 +8,24 @@ html,
 body {
   font-family: "Poppins", sans-serif;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:disabled {
+    cursor: auto;
+  }
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:disabled {
+    cursor: auto;
+  }
+}

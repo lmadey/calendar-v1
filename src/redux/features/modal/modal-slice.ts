@@ -1,21 +1,19 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-type ModalState = "visible" | "hide";
-
 interface InitialState {
-  modalState: ModalState;
+  modalComponent: null | JSX.Element;
 }
 
 const initialState: InitialState = {
-  modalState: "hide",
+  modalComponent: null,
 };
 
 const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    setModalVisible(state, action: PayloadAction<ModalState>) {
-      state.modalState = action.payload;
+    setModalVisible(state, action: PayloadAction<{ component: JSX.Element }>) {
+      state.modalComponent = action.payload.component;
     },
   },
 });

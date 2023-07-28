@@ -1,22 +1,11 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { getMonth } from "../../../utils/date-calculate";
+import { DayDate, SelectedDay } from "../../../types/types";
 export type MonthType = "CURRENT" | "NEXT" | "PREV";
 
 export interface CalendarDay {
   type: MonthType;
-  date: SelectedDay;
-  dateString: string;
-}
-
-export interface SelectedDay {
-  year: number;
-  month: number;
-  day: number;
-  weekday: number;
-}
-
-export interface DayDate {
   date: SelectedDay;
   dateString: string;
 }
