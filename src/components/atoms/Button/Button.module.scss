@@ -20,6 +20,14 @@
   padding: 0 32px;
 }
 
+.secondarySmall {
+  @extend .primarySmall;
+
+  background-color: transparent;
+  border: 2px solid $primary-default;
+  color: $primary-default;
+}
+
 .ghost {
   padding: 8px;
 }

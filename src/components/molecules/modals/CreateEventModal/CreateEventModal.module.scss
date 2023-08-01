@@ -9,3 +9,9 @@
   padding: 16px 0;
   margin-bottom: 16px;
 }
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

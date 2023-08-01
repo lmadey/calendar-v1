@@ -3,7 +3,8 @@ import styles from "./CreateEventModal.module.scss";
 import Text from "../../../atoms/Text/Text";
 import { languages } from "../../../../languages/languages";
 import { ChooseEvent } from "./ChooseEvent";
-import { EventForm } from "./EventForm";
+import { EventWithoutTimeForm } from "./EventWithoutTimeForm";
+import { EventWithTimeForm } from "./EventWithTimeForm";
 
 export const CreateEventModal: React.FC = () => {
   const { addNewEvent } = languages.PL.labels;
@@ -13,7 +14,8 @@ export const CreateEventModal: React.FC = () => {
       <Text displaySmallBold>{addNewEvent}</Text>
       <>
         <ChooseEvent />
-        <EventForm />
+        <EventWithoutTimeForm />
+        <EventWithTimeForm />
       </>
     </div>
   );

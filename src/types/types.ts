@@ -11,6 +11,7 @@ export type PostDataStatus<T> =
   | { type: "ERROR"; error: string };
 
 export interface DayDate {
+  [key: string]: SelectedDay | string;
   date: SelectedDay;
   dateString: string;
 }
@@ -22,12 +23,13 @@ export interface SelectedDay {
   weekday: number;
 }
 
-export type CalendarEvent =
+export type CalendarEventWithoutTime =
   | { type: "BIRTHDAY"; label: string; date: DayDate }
   | { type: "ANNIVERSARY"; label: string; date: DayDate }
   | { type: "REMINDER"; label: string; date: DayDate }
-  | { type: "TODO"; label: string; date: DayDate }
-  | { type: "ACTIVITY"; label: string; date: DayDate; time: number }
+  | { type: "TODO"; label: string; date: DayDate };
+
+export type CalendarEventWithTime =
   | {
       type: "EVENT";
       label: string;
@@ -47,7 +49,13 @@ export type CalendarEvent =
       };
     };
 
+export type CalendarEvent = CalendarEventWithTime | CalendarEventWithoutTime;
+
 export interface Option {
   value: string | number;
   label: string;
+}
+
+export enum QueriesKeys {
+  DAY_EVENTS = "DAY_EVENTS",
 }

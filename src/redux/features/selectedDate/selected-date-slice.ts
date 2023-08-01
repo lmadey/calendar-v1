@@ -12,12 +12,15 @@ export interface CalendarDay {
 
 interface InitialState {
   selectedMonth: CalendarDay[];
-  selectedDay: DayDate | null;
+  selectedDay: DayDate;
 }
 
 const initialState: InitialState = {
   selectedMonth: getMonth(0, 0, 0),
-  selectedDay: null,
+  selectedDay: {
+    dateString: "",
+    date: { month: 0, day: 0, weekday: 0, year: 2000 },
+  },
 };
 
 const selectedDateSlice = createSlice({

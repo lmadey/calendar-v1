@@ -5,14 +5,18 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../../../../redux/redux-app/hooks";
-import { CalendarEvent } from "../../../../types/types";
+import {
+  CalendarEvent,
+  CalendarEventWithoutTime,
+} from "../../../../types/types";
 import { Button } from "../../../atoms/Button/Button";
 import { InputRadio } from "../../../atoms/InputRadio/InputRadio";
 import Text from "../../../atoms/Text/Text";
 import {
+  FormStep,
   setChoosenEvent,
   setNextEventStep,
-} from "../../../../redux/features/calendarEvents/create-event-slice";
+} from "../../../../redux/features/calendarEvents/create-event-step-slice";
 
 interface EventInput {
   name: CalendarEvent["type"];
@@ -20,26 +24,18 @@ interface EventInput {
 }
 
 export const ChooseEvent: React.FC = () => {
-  const {
-    activity,
-    todo,
-    meeting,
-    event,
-    reminder,
-    birthday,
-    anniversary,
-    chooseEventType,
-    next,
-  } = languages.PL.labels;
+  const { labels, events: eventLabels } = languages.PL;
+  const { chooseEventType, next } = labels;
+
+  const { EVENT, TODO, MEETING, REMINDER, BIRTHDAY, ANNIVERSARY } = eventLabels;
 
   const events: EventInput[] = [
-    { name: "ACTIVITY", label: activity },
-    { name: "TODO", label: todo },
-    { name: "MEETING", label: meeting },
-    { name: "EVENT", label: event },
-    { name: "REMINDER", label: reminder },
-    { name: "BIRTHDAY", label: birthday },
-    { name: "ANNIVERSARY", label: anniversary },
+    { name: "EVENT", label: EVENT },
+    { name: "TODO", label: TODO },
+    { name: "MEETING", label: MEETING },
+    { name: "REMINDER", label: REMINDER },
+    { name: "BIRTHDAY", label: BIRTHDAY },
+    { name: "ANNIVERSARY", label: ANNIVERSARY },
   ];
 
   const currentChoosenEvent = useAppSelector(
@@ -54,7 +50,7 @@ export const ChooseEvent: React.FC = () => {
   };
 
   const goToNextStep = () => {
-    dispatch(setNextEventStep({ calendarEventType: currentChoosenEvent }));
+    dispatch(setNextEventStep(currentChoosenEvent));
   };
 
   if (currentStep.type !== "CHOOSE_EVENT") {

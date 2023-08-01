@@ -4,6 +4,7 @@ import styles from "./Button.module.scss";
 const classNames = {
   primaryBig: styles.primaryBig,
   primarySmall: styles.primarySmall,
+  secondarySmall: styles.secondarySmall,
   ghost: styles.ghost,
 };
 

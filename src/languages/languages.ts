@@ -28,16 +28,24 @@ const PL = {
   shortWeekDays: ["Pn", "Wt", "Śr", "Cz", "Pt", "Sb", "Nd"],
   labels: {
     addNewEvent: "Dodaj nowe zdarzenie",
-    activity: "Aktywność",
-    todo: "Do zrobienia",
-    meeting: "Spotkanie",
-    event: "Wydarzenie",
-    reminder: "Przypomnienie",
-    birthday: "Urodziny",
-    anniversary: "Rocznica",
     chooseEventType: "Wybierz rodzaj zdarzenia",
     next: "Dalej",
     submit: "Wyślij",
+    addTitle: "dodaj tytuł",
+    back: "Powrót",
+    add: "Dodaj",
+  },
+  events: {
+    ACTIVITY: "Aktywność",
+    TODO: "Do zrobienia",
+    MEETING: "Spotkanie",
+    EVENT: "Wydarzenie",
+    REMINDER: "Przypomnienie",
+    BIRTHDAY: "Urodziny",
+    ANNIVERSARY: "Rocznica",
+  },
+  messages: {
+    noEvents: "Nie masz na dziś nic zaplanowane",
   },
 };
 

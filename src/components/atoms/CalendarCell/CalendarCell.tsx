@@ -14,7 +14,6 @@ import {
   incrementMonthCounter,
 } from "../../../redux/features/calculateDate/calculate-date-slice";
 import Text from "../Text/Text";
-import { endpoints } from "../../../endpoints/endpoints";
 import { DayDate } from "../../../types/types";
 
 interface Props {
@@ -49,9 +48,9 @@ export const CalendarCell: React.FC<Props> = (props) => {
       onClick={() => handleOnClick(props.day)}
     >
       <Text textSmall>{date.day}</Text>
-      <span className={styles.notify}>
+      {/* <span className={styles.notify}>
         <Text textXsmall>{2}</Text>
-      </span>
+      </span> */}
     </div>
   );
 };
