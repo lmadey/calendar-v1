@@ -1,40 +1,28 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styles from "./InputRadio.module.scss";
-import {
-  UseFormRegisterReturn,
-  Controller,
-  Control,
-  FieldValues,
-  useController,
-  UseControllerProps,
-  Path,
-} from "react-hook-form";
-interface Props<T extends { [key: string]: any }> {
+interface Props {
   label: string;
-  register: UseFormRegisterReturn<keyof typeof T>;
-  control: Control<T>;
+  name: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
-export const InputRadio = <T extends { [key: string]: any }>(
-  props: Props<T>
-) => {
-  const { label, register, control } = props;
-  const {
-    field: { value, onasdf },
-  } = useController<UseControllerProps<Path<T>>>({
-    name: register.name,
-    control: control,
-  });
+export const InputRadio: React.FC<Props> = (props) => {
+  const { label, name, value, onChange } = props;
+
   return (
-    <Controller
-      name={register.name}
-      control={control}
-      render={({ field }) => (
-        <div className={styles.customRadio}>
-          <input {...field} type="radio" checked={field.value === value} />
-          <label htmlFor={register.name}>{label}</label>
-        </div>
-      )}
-    />
+    <div data-is-checked={value === name} className={styles.customRadio}>
+      <input
+        value={value}
+        className={styles.input}
+        onChange={(e) => onChange(e)}
+        checked={name === value}
+        name={name}
+        type="radio"
+      />
+      <label className={styles.label} htmlFor={name}>
+        {label}
+      </label>
+    </div>
   );
 };

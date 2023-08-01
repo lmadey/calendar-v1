@@ -46,3 +46,8 @@ export type CalendarEvent =
         minute: number;
       };
     };
+
+export interface Option {
+  value: string | number;
+  label: string;
+}

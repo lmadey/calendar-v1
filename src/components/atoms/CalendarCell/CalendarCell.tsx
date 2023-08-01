@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import styles from "./CalendarCell.module.scss";
 import {
   CalendarDay,
-  DayDate,
   setSelectedDay,
 } from "../../../redux/features/selectedDate/selected-date-slice";
 import {
@@ -16,6 +15,7 @@ import {
 } from "../../../redux/features/calculateDate/calculate-date-slice";
 import Text from "../Text/Text";
 import { endpoints } from "../../../endpoints/endpoints";
+import { DayDate } from "../../../types/types";
 
 interface Props {
   day: CalendarDay;

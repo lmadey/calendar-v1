@@ -3,6 +3,7 @@ import styles from "./Text.module.scss";
 
 interface Props {
   children: React.ReactNode | undefined;
+  additionalClassName?: string;
   displayLarge?: boolean;
   displayMedium?: boolean;
   displaySmall?: boolean;
@@ -60,7 +61,9 @@ const Text: React.FC<Props> = (props) => {
         wordBreak: "break-word",
         textAlign: props.center ? "center" : "left",
       }}
-      className={`${styles.text} ${concatClassNames()}`}
+      className={`${styles.text} ${concatClassNames()} ${
+        currentProps.additionalClassName ? currentProps.additionalClassName : ""
+      }`}
     >
       {props.children}
     </p>

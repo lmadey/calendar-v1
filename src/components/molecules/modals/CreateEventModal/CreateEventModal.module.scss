@@ -1,0 +1,11 @@
+@import "../../../../styles/variables.scss";
+
+.inputs {
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 16px 0;
+  margin-bottom: 16px;
+}

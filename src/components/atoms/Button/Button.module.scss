@@ -1,2 +1,25 @@
-.primary {
+@import "../../../styles/variables.scss";
+@import "../../../styles/typography.scss";
+
+.primaryBig {
+  @extend .linkMedium;
+
+  color: $off-white;
+  background-color: $primary-default;
+  border-radius: 36px;
+  height: 64px;
+  padding: 0 32px;
+}
+
+.primarySmall {
+  @extend .primaryBig;
+  @extend .textSmall;
+
+  color: $off-white;
+  height: 40px;
+  padding: 0 32px;
+}
+
+.ghost {
+  padding: 8px;
 }

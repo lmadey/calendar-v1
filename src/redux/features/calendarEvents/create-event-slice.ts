@@ -3,25 +3,40 @@ import { CalendarEvent } from "../../../types/types";
 
 type Step =
   | { type: "CHOOSE_EVENT" }
-  | { type: "EVENT_FORM"; event: CalendarEvent };
+  | { type: "EVENT_FORM"; event: CalendarEvent["type"] };
 
 interface InitialState {
   step: Step;
+  choosenEventType: CalendarEvent["type"];
 }
 
 const initialState: InitialState = {
   step: { type: "CHOOSE_EVENT" },
+  choosenEventType: "ACTIVITY",
 };
 
 const createEventSlice = createSlice({
   name: "create new event",
   initialState,
   reducers: {
-    setCreateEventStep(state, action: PayloadAction<Step>) {
-      state.step = action.payload;
+    setNextEventStep(
+      state,
+      action: PayloadAction<{ calendarEventType: CalendarEvent["type"] }>
+    ) {
+      state.step = {
+        type: "EVENT_FORM",
+        event: action.payload.calendarEventType,
+      };
+    },
+    backToChooseEvent(state) {
+      state.step = { type: "CHOOSE_EVENT" };
+    },
+    setChoosenEvent(state, action: PayloadAction<CalendarEvent["type"]>) {
+      state.choosenEventType = action.payload;
     },
   },
 });
 
-export const { setCreateEventStep } = createEventSlice.actions;
+export const { backToChooseEvent, setNextEventStep, setChoosenEvent } =
+  createEventSlice.actions;
 export default createEventSlice.reducer;
