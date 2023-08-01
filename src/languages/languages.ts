@@ -49,6 +49,58 @@ const PL = {
   },
 };
 
+const EN = {
+  weekDays: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  monthsNames: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  validations: {
+    thisFieldIsRequired: "This field is required",
+  },
+  shortWeekDays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  labels: {
+    addNewEvent: "Add new event",
+    chooseEventType: "Choose event type",
+    next: "Next",
+    submit: "Submit",
+    addTitle: "Add title",
+    back: "Back",
+    add: "Add",
+  },
+  events: {
+    ACTIVITY: "Activity",
+    TODO: "Todo",
+    MEETING: "Meeting",
+    EVENT: "Event",
+    REMINDER: "Reminder",
+    BIRTHDAY: "Birthday",
+    ANNIVERSARY: "Anniversary",
+  },
+  messages: {
+    noEvents: "You have nothing planned for today",
+  },
+};
+
 export const languages = {
   PL,
+  EN,
 };

@@ -1,22 +1,18 @@
 import React, { ChangeEvent } from "react";
 import styles from "./CreateEventModal.module.scss";
-import { languages } from "../../../../languages/languages";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../../redux/redux-app/hooks";
-import {
-  CalendarEvent,
-  CalendarEventWithoutTime,
-} from "../../../../types/types";
+import { CalendarEvent } from "../../../../types/types";
 import { Button } from "../../../atoms/Button/Button";
 import { InputRadio } from "../../../atoms/InputRadio/InputRadio";
 import Text from "../../../atoms/Text/Text";
 import {
-  FormStep,
   setChoosenEvent,
   setNextEventStep,
 } from "../../../../redux/features/calendarEvents/create-event-step-slice";
+import { useLanguage } from "../../../../hooks/useLanguage";
 
 interface EventInput {
   name: CalendarEvent["type"];
@@ -24,7 +20,7 @@ interface EventInput {
 }
 
 export const ChooseEvent: React.FC = () => {
-  const { labels, events: eventLabels } = languages.PL;
+  const { labels, events: eventLabels } = useLanguage();
   const { chooseEventType, next } = labels;
 
   const { EVENT, TODO, MEETING, REMINDER, BIRTHDAY, ANNIVERSARY } = eventLabels;

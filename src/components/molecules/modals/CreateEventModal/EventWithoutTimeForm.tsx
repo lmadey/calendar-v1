@@ -15,12 +15,12 @@ import {
   DayDate,
   QueriesKeys,
 } from "../../../../types/types";
-import { languages } from "../../../../languages/languages";
 import { backToChooseEvent } from "../../../../redux/features/calendarEvents/create-event-step-slice";
 import Text from "../../../atoms/Text/Text";
 import { useMutation, useQueryClient } from "react-query";
 import { eventRepository } from "../../../../repositories/event.repository";
 import { closeModal } from "../../../../redux/features/modal/modal-slice";
+import { useLanguage } from "../../../../hooks/useLanguage";
 
 interface Form extends FormSchema {
   label: string;
@@ -29,7 +29,7 @@ interface Form extends FormSchema {
 }
 
 export const EventWithoutTimeForm: React.FC = () => {
-  const { events, labels } = languages.PL;
+  const { events, labels } = useLanguage();
   const { addTitle, back, add } = labels;
   const dispatch = useAppDispatch();
   const step = useAppSelector((state) => state.createEvent.step);

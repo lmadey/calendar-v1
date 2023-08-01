@@ -3,6 +3,7 @@ import calculateDateReducer from "../features/calculateDate/calculate-date-slice
 import slectedDateReducer from "../features/selectedDate/selected-date-slice";
 import modalReducer from "../features/modal/modal-slice";
 import createEventReducer from "../features/calendarEvents/create-event-step-slice";
+import languageReducer from "../features/langauges/langauges-slice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../sagas";
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     slectedDate: slectedDateReducer,
     modal: modalReducer,
     createEvent: createEventReducer,
+    languages: languageReducer,
   },
   middleware: [sagaMiddleware],
 });

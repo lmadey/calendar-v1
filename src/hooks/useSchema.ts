@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { languages } from "../languages/languages";
+import { useLanguage } from "./useLanguage";
 
 type YupValidation = yup.StringSchema | yup.BooleanSchema | yup.MixedSchema;
 
@@ -18,7 +18,7 @@ type SchemaWithValidations = {
 };
 
 export function useSchema<T>(schemaObject: CustomSchema<T>) {
-  const { thisFieldIsRequired } = languages.PL.validations;
+  const { thisFieldIsRequired } = useLanguage().validations;
 
   const validations: Validations = {
     required: yup.string().required(thisFieldIsRequired),

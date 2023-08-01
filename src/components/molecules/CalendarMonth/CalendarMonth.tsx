@@ -1,24 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./CalendarMonth.module.scss";
 import { languages } from "../../../languages/languages";
-import { useAppDispatch, useAppSelector } from "../../../redux/redux-app/hooks";
-import { selectSpecyficDate } from "../../../redux/features/calculateDate/calculate-date-slice";
-import { setSelectedMonth } from "../../../redux/features/selectedDate/selected-date-slice";
+import { useAppSelector } from "../../../redux/redux-app/hooks";
 import { CalendarCell } from "../../atoms/CalendarCell/CalendarCell";
 import { CalendarWeekdayName } from "../../atoms/CalendarWeekdayName/CalendarWeekdayName";
+import { useLanguage } from "../../../hooks/useLanguage";
 
 export const CalendarMonth: React.FC = () => {
-  const { shortWeekDays } = languages.PL;
+  const { shortWeekDays } = useLanguage();
   const month = useAppSelector((state) => state.slectedDate.selectedMonth);
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    dispatch(selectSpecyficDate({ year, month }));
-    dispatch(setSelectedMonth({ year, month, monthCounter: 0 }));
-  }, [dispatch]);
 
   return (
     <div className={styles.calendarWrapper}>

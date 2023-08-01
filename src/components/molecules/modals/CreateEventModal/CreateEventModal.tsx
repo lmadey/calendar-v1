@@ -5,9 +5,10 @@ import { languages } from "../../../../languages/languages";
 import { ChooseEvent } from "./ChooseEvent";
 import { EventWithoutTimeForm } from "./EventWithoutTimeForm";
 import { EventWithTimeForm } from "./EventWithTimeForm";
+import { useLanguage } from "../../../../hooks/useLanguage";
 
 export const CreateEventModal: React.FC = () => {
-  const { addNewEvent } = languages.PL.labels;
+  const { addNewEvent } = useLanguage().labels;
 
   return (
     <div className={styles.wrapper}>

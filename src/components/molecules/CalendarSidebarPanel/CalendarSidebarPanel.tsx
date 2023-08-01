@@ -3,7 +3,6 @@ import styles from "./CalendarSidebarPanel.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/redux-app/hooks";
 import { getDayDateByDate } from "../../../utils/date-calculate";
 import Text from "../../atoms/Text/Text";
-import { languages } from "../../../languages/languages";
 import { CalendarEvent, DayDate, QueriesKeys } from "../../../types/types";
 import { CreateEventModal } from "../modals/CreateEventModal/CreateEventModal";
 import { openModal } from "../../../redux/features/modal/modal-slice";
@@ -11,10 +10,11 @@ import { Button } from "../../atoms/Button/Button";
 import { useQuery } from "react-query";
 import { endpoints } from "../../../endpoints/endpoints";
 import { getData } from "../../../utils/getData";
+import { useLanguage } from "../../../hooks/useLanguage";
 
 export const CalendarSidebarPanel: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { weekDays, monthsNames, labels } = languages.PL;
+  const { weekDays, monthsNames, labels, messages } = useLanguage();
   const { addNewEvent } = labels;
   const selectedDay: DayDate | null = useAppSelector(
     (state) => state.slectedDate.selectedDay
@@ -30,9 +30,9 @@ export const CalendarSidebarPanel: React.FC = () => {
   };
 
   const events = useQuery<CalendarEvent[]>({
-    queryKey: [QueriesKeys.DAY_EVENTS, selectedDay.dateString],
+    queryKey: [QueriesKeys.DAY_EVENTS, selectedDay?.dateString],
     queryFn: () =>
-      getData(`${endpoints.eventsByDate}/${selectedDay.dateString}`),
+      getData(`${endpoints.eventsByDate}/${selectedDay?.dateString}`),
   });
 
   return (
@@ -45,7 +45,15 @@ export const CalendarSidebarPanel: React.FC = () => {
       <Button variant="primarySmall" onClick={showModal}>
         {addNewEvent}
       </Button>
-      <div className={styles.events}></div>
+      <div className={styles.events}>
+        {events.data?.length === 0 ? (
+          <Text placeholder mobileLinkXsmall>
+            {messages.noEvents}
+          </Text>
+        ) : (
+          events.data?.map((event) => <Text>{event.label}</Text>)
+        )}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+@import "../../../styles/variables.scss";
+
+.header {
+  height: 96px;
+  border-bottom: 2px solid $primary-default;
+  padding: 16px 32px;
+}
+
+.headerInner {
+  max-width: 1310px;
+  margin: 0 auto;
+}

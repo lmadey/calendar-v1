@@ -19,7 +19,7 @@ const initialState: InitialState = {
   selectedMonth: getMonth(0, 0, 0),
   selectedDay: {
     dateString: "",
-    date: { month: 0, day: 0, weekday: 0, year: 2000 },
+    date: { month: 0, day: 0, weekday: 0, year: 0 },
   },
 };
 

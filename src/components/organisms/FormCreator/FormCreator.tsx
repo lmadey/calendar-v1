@@ -1,12 +1,12 @@
 import styles from "./FormCreator.module.scss";
 import { DefaultValues, useForm } from "react-hook-form";
-import { DayDate, Option } from "../../../types/types";
+import { Option } from "../../../types/types";
 import { CustomSchema, useSchema } from "../../../hooks/useSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../atoms/Input/Input";
-import { languages } from "../../../languages/languages";
 import { Button } from "../../atoms/Button/Button";
 import { Select } from "../../atoms/Select/Select";
+import { useLanguage } from "../../../hooks/useLanguage";
 
 export type FormSchema = { [key: string]: string | number | boolean | object };
 
@@ -34,7 +34,7 @@ interface Props<T extends FormSchema> {
 export const FormCreator = <T extends FormSchema>(props: Props<T>) => {
   const { fields, defaultValues, schema, cancelButton, onSubmit } = props;
   const shemaRules = useSchema(schema);
-  const { submit } = languages.PL.labels;
+  const { submit } = useLanguage().labels;
   const {
     handleSubmit,
     register,
